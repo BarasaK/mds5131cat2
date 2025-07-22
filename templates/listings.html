@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Listings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-3">🏠 Property Listings</h2>
+    <a href="/add" class="btn btn-success mb-4">+ Add New</a>
+
+    <div class="row">
+        {% for prop in listings %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                {% if prop.image %}
+                <img src="{{ url_for('uploaded_file', filename=prop.image.split('/')[-1]) }}" class="card-img-top" alt="Property Image">
+                {% else %}
+                <img src="{{ url_for('static', filename='placeholder.png') }}" class="card-img-top" alt="No image available">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ prop.name }}</h5>
+                    <p class="card-text"><strong>Location:</strong> {{ prop.location }}</p>
+                    <p class="card-text"><strong>Price:</strong> ${{ "{:,.2f}".format(prop.price) }}</p>
+                    <p class="card-text"><strong>Type:</strong> {{ prop.type }}</p>
+                    <p class="card-text"><strong>Status:</strong> {{ prop.status }}</p>
+                </div>
+                <div class="card-footer bg-white d-flex justify-content-between">
+                    <a href="/edit/{{ prop._id }}" class="btn btn-outline-primary btn-sm">Edit</a>
+                    <a href="/delete/{{ prop._id }}" class="btn btn-outline-danger btn-sm">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
