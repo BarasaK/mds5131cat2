@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Property</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2 class="text-center">🏡 Add New Property</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="name" class="form-label">Property Name</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" name="location" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label">Price (KES)</label>
+            <input type="number" class="form-control" name="price" step="0.01" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="type" class="form-label">Type</label>
+            <select class="form-select" name="type" required>
+                <option value="">Select</option>
+                <option>Apartment</option>
+                <option>House</option>
+                <option>Office</option>
+                <option>Land</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select class="form-select" name="status" required>
+                <option value="">Select</option>
+                <option>Available</option>
+                <option>Sold</option>
+                <option>Rented</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Property Image</label>
+            <input class="form-control" type="file" name="image" accept="image/*" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Add Property</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+
+# Flask uploads
+uploads/
+
+# Environment
+.env
+venv/
+
+
+# VS Code settings
+.vscode/
+
+#
